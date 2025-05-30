@@ -5,8 +5,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 
 const gambarino = localFont({
-  src: '../../public/fonts/Gambarino-Regular.woff2',
-  weight: '100 900',
+  src: '../fonts/Gambarino-Regular.woff2',
   display: 'swap',
   variable: '--font-gambarino',
 });
@@ -17,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={gambarino.variable}>
+    <html lang="en" className={`${gambarino.variable} antialiased`}>
       <body>{children}</body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
