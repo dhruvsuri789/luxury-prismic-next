@@ -5,9 +5,10 @@ import { asText, RichTextField } from '@prismicio/client';
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 interface RevealTextProps {
   field: RichTextField;
@@ -17,6 +18,8 @@ interface RevealTextProps {
   as?: React.ElementType;
   duration?: number;
   align?: 'start' | 'end' | 'center';
+  triggerStart?: string;
+  triggerEnd?: string;
 }
 
 function RevealText({
@@ -27,6 +30,8 @@ function RevealText({
   as: Component = 'div',
   duration = 0.8,
   align = 'start',
+  triggerStart = 'top 80%',
+  triggerEnd = 'bottom 20%',
 }: RevealTextProps) {
   const container = useRef<HTMLDivElement>(null);
   const words = asText(field).split(' ');
@@ -40,6 +45,11 @@ function RevealText({
           duration,
           ease: 'power3.out',
           stagger: staggerAmount,
+          scrollTrigger: {
+            trigger: container.current,
+            start: triggerStart,
+            end: triggerEnd,
+          },
         });
       });
 
