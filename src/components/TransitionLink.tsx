@@ -1,6 +1,5 @@
 import { asLink, LinkField, PrismicDocument } from '@prismicio/client';
-import { PrismicNextLink } from '@prismicio/next';
-// import { Link } from 'next-view-transitions';
+import { Link } from 'next-view-transitions';
 
 export type TransitionLinkProps = {
   children?: React.ReactNode;
@@ -30,8 +29,8 @@ export const TransitionLink = ({
   }
 
   return (
-    <PrismicNextLink href={url} className={className} onClick={onClick} tabIndex={tabIndex}>
+    <Link href={url} className={className} onClick={onClick} tabIndex={tabIndex}>
       {field?.text ?? children}
-    </PrismicNextLink>
+    </Link>
   );
 };

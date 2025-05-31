@@ -3,9 +3,10 @@ import { PrismicPreview } from '@prismicio/next';
 import localFont from 'next/font/local';
 
 import { Footer } from '@/components/Footer';
-import NavBar from '@/components/Navbar';
+import { Navbar } from '@/components/Navbar';
 import { isFilled } from '@prismicio/client';
 import { Metadata } from 'next';
+import { ViewTransitions } from 'next-view-transitions';
 import './globals.css';
 
 const gambarino = localFont({
@@ -32,19 +33,24 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const client = createClient();
+  const settings = await client.getSingle('settings');
+
   return (
-    <html lang="en" className={`${gambarino.variable} antialiased`}>
-      <body className="bg-neutral-900 text-white">
-        <NavBar />
-        <main className="pt-14 md:pt-16">{children}</main>
-        <Footer />
-      </body>
-      <PrismicPreview repositoryName={repositoryName} />
-    </html>
+    <ViewTransitions>
+      <html lang="en" className={`${gambarino.variable} antialiased`}>
+        <body className="bg-neutral-900 text-white">
+          <Navbar settings={settings} />
+          <main className="pt-14 md:pt-16">{children}</main>
+          <Footer />
+        </body>
+        <PrismicPreview repositoryName={repositoryName} />
+      </html>
+    </ViewTransitions>
   );
 }

@@ -1,13 +1,13 @@
+import { TransitionLink, TransitionLinkProps } from '@/components/TransitionLink';
 import { cn } from '@/lib/utils';
-import { PrismicNextLink, PrismicNextLinkProps } from '@prismicio/next';
 
-type ButtonLinkProps = PrismicNextLinkProps & {
+type ButtonLinkProps = TransitionLinkProps & {
   variant: 'Secondary' | 'Primary';
 };
 
 function ButtonLink({ className, variant = 'Primary', ...restProps }: ButtonLinkProps) {
   return (
-    <PrismicNextLink
+    <TransitionLink
       className={cn(
         'inline-flex items-center justify-center px-12 py-4 text-center font-extrabold tracking-wider uppercase transition-colors duration-300',
         variant === 'Secondary'
