@@ -69,6 +69,7 @@ function RevealText({
         <span key={`${index}-${word}-${id}`} className="mb-0 inline-block overflow-hidden pb-4">
           <span className="reveal-text-word mt-0 inline-block translate-y-[120%] will-change-transform">
             {word}
+            {index < words.length - 1 && <>&nbsp;</>}
           </span>
         </span>
       ))}

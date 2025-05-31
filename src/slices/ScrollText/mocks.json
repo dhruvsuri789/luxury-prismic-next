@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "electric",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua in magna non Lorem commodo. Dolore sit deserunt cupidatat reprehenderit ex laborum dolore voluptate veniam occaecat cillum. Mollit ex labore velit ex."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
