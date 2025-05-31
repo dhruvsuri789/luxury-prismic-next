@@ -50,7 +50,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
         {fragrance && (
           <FadeIn
             className="animate-in relative translate-y-16 self-end bg-white/10 opacity-0 will-change-transform"
-            vars={{ duration: 1, delay: 1 }}
+            vars={{ duration: 3, delay: 1 }}
           >
             <PrismicNextImage
               field={fragrance.data.bottle_image}
